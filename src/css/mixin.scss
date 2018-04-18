@@ -1,0 +1,76 @@
+$themeColor: #4EA3FE;
+
+// 宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// 宽高背景色
+@mixin wh-c($width, $height,$backgroundColor) {
+  width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+}
+
+// 宽高行高
+@mixin wh-l($width, $height) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+}
+
+// 宽高左浮动
+@mixin wh-f($width, $height) {
+  width: $width;
+  height: $height;
+  float: left;
+}
+
+// 全屏定位
+@mixin fs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+// 全屏定位(除去上下高度)
+@mixin fs-cont {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.333333rem;
+  bottom: 1.333333rem;
+}
+
+// 全屏定位(除去上高度)
+@mixin fs-noTop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.333333rem;
+  bottom: 0;
+}
+
+// 绝对居中
+@mixin f-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 文字溢出省略号
+@mixin text-over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 缩放字体
+@mixin zoom-font($size) {
+  -webkit-transform-origin-x: 0;
+  -webkit-transform:scale($size);
+}
