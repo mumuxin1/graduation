@@ -32,7 +32,7 @@ exports.cssLoaders = function (options) {
   const px2remLoader = {
     loader: 'px2rem-loader',
     options: {
-      remUnit: 75 // iphone6开发规格（设计稿宽度/10）
+      remUnit: 37.5 // iphone6开发规格（设计稿宽度/10）
     }
   }
   // generate loader string to be used with extract text plugin

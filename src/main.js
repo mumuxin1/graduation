@@ -6,10 +6,10 @@ import router from './router'
 
 // mint-ui vue移动端组件库
 import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+import 'amfe-flexible' // 自适应布局
 Vue.use(MintUI)
-
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
