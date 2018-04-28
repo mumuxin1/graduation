@@ -1,0 +1,404 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+dialog,
+figure,
+hgroup,
+a,
+span,
+em,
+i,
+strong {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+b,
+strong {
+  font-weight: normal;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: #5f5f5f;
+}
+
+a:active {
+  background: #d9d9d9;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background-color: #f5f5f5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: #d6d6d6;
+}
+
+/*placeholder颜色*/
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #d6d6d6;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #d6d6d6;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #d6d6d6;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #d6d6d6;
+}
+
+* {
+  // -webkit-overflow-scrolling: touch; //弹性滑动（解决在ios端滑动卡顿）
+  -webkit-tap-highlight-color: transparent; //用户点击iOS的Safari浏览器中的链接或JavaScript的可点击的元素时，覆盖显示的高亮颜色。
+  outline: none;
+}
+
+*:not(input):not(textarea) {
+  -webkit-touch-callout: none; /*苹果端*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -khtml-user-select: none; /*早期浏览器*/
+  -moz-user-select: none; /*火狐*/
+  -ms-user-select: none; /*IE10*/
+  user-select: none;
+}
+
+//弹性滑动（解决在ios端滑动卡顿）
+.openScroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+input,
+textarea {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+/*
+* COMMON_CSS
+* 项目相关
+*/
+
+//主题色
+@themeColor: #3fae48;
+.themeColor {
+  color: @themeColor;
+}
+
+//1像素边框(top, bommon)
+.top-pixel {
+  width: 100%;
+  height: 2px;
+  background: #cdcdcd;
+  -webkit-transform: scaleY(0.5);
+  -webkit-transform-origin: 0 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bom-pixel {
+  width: 100%;
+  height: 2px;
+  background: #cdcdcd;
+  -webkit-transform: scaleY(0.5);
+  -webkit-transform-origin: 0 0;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@import "./mixin";
+//栏目列表
+@columnListH: 45px;
+.column-list {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+  background: #ffffff;
+  li {
+    .wh-l(100%, @columnListH);
+    a {
+      display: block;
+      .wh(100%, 100%);
+      padding-left: 6%;
+      span {
+        position: relative;
+        display: block;
+        .wh(100%, 100%);
+      }
+    }
+  }
+}
+
+// 使用模板
+// <ul class="column-list">
+//   <div class="top-pixel"></div>
+//   <li>
+//     <a>
+//       <span>
+//         <div class="bom-pixel"></div>
+//       </span>
+//     </a>
+//   </li>
+//   <li>
+//     <a>
+//       <span>
+
+//       </span>
+//     </a>
+//   </li>
+//   <div class="bom-pixel"></div>
+// </ul>
+
+//按钮样式
+.redButton {
+  width: 90%;
+  height: 45px;
+  background: #f55244;
+  color: #fff;
+  font-size: 14px;
+  margin: 45px auto;
+  letter-spacing: 5px;
+  &:active {
+    background: #d64b3e;
+    color: #fffaf7;
+  }
+}
+
+.greenButton {
+  width: 90%;
+  height: 45px;
+  background: #3faf48;
+  color: #fff;
+  margin: 45px auto;
+  font-size: 14px;
+  display: block;
+  letter-spacing: 5px;
+  &:active {
+    background: #34953e;
+    color: #f2fff5;
+  }
+}
+
+//禁用样式
+.disabledGreenBtn {
+  background: #85d58e !important;
+}
+
+//弹窗动画
+.currentMask-leave-active {
+  transition: translateY 0s ease-in 0.3s;
+}
+.currentAlert-enter-active,
+.currentAlert-leave-active {
+  transition: all 0.2s ease-out;
+}
+/* 进入开始 */
+.currentAlert-enter {
+  transform: scale3d(0.2, 0.2, 0.1);
+  opacity: 0;
+}
+/* 出去终点 */
+.currentAlert-leave-active {
+  transform: scale3d(0.2, 0.2, 0.1);
+  opacity: 0;
+}
+
+/*
+* 项目Mint UI框架
+* 修改CSS
+*/
+
+//侧滑删除
+.mint-cell-wrapper {
+  height: 100%;
+}
+
+//单项选择
+.mint-radio-input:checked + .mint-radio-core {
+  background-color: @themeColor;
+  border-color: @themeColor;
+}
+
+//swiper滑动小点
+.mint-swipe-indicator {
+  background: #999;
+  opacity: 1;
+}
+.mint-swipe-indicator.is-active {
+  background: @themeColor;
+}
+
+//swiper滑动
+.mint-tab-container-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+//开关颜色
+.mint-switch-input:checked + .mint-switch-core {
+  border-color: @themeColor;
+  background-color: @themeColor;
+}
+
+//时间选择插件颜色
+.mint-datetime-action {
+  color: @themeColor;
+}
+
+//swiper小点尺寸
+.mint-swipe-indicator {
+  width: 5px;
+  height: 5px;
+}
+
+//加载框层级
+.mint-indicator-wrapper {
+  z-index: 999;
+}
+
+//设备页面头部tab宽高
+.mint-tab-container {
+  position: static;
+}
+
+//控制进度条圆角（默认颜色条、颜色条）
+.mt-range-runway {
+  border-radius: 6px;
+}
+.mt-range-progress {
+  border-radius: 6px;
+}
+
+//导航栏属性内容正常显示不被修剪
+.mint-tab-container {
+  overflow: visible;
+}
+
+//滑块修改
+.mt-range-thumb {
+  background-color: transparent;
+  box-shadow: none;
+  width: 30px;
+  height: 30px;
+  background: url("../images/equipment/children/remote/regulator.png") center
+    no-repeat;
+  background-size: 7px 12px;
+  border-radius: 0px;
+}
+.mt-range-runway {
+  // 灰色块
+  right: -19px;
+  left: 12px;
+  border-top-color: #eeeeee;
+}
+.mt-range-progress {
+  //颜色块
+  background-color: @themeColor;
+  left: 12px;
+}
+
+//多媒体滑块
+.range-media {
+  .mt-range-thumb {
+    background-color: transparent;
+    box-shadow: none;
+    width: 30px;
+    height: 30px;
+    background: url("../images/equipment/children/media/button.png") center
+      no-repeat;
+    background-size: 13px 13px;
+    border-radius: 0px;
+  }
+  .mt-range-runway {
+    border-top-width: 7px !important;
+  }
+  .mt-range-progress {
+    height: 7px !important;
+    background-color: #959aad;
+  }
+}
+
+//confirm弹窗
+.mint-msgbox-confirm {
+  color: @themeColor;
+}
