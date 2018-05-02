@@ -10,13 +10,13 @@
             </div>
             <div class="buttom">
                 <ul class="date">
-                    <li><span>SUN</span><span>{{day}}</span></li>
-                    <li><span>MON</span><span>{{day}}</span></li>
-                    <li><span>TUE</span><span>{{day}}</span></li>
-                    <li><span>WED</span><span>{{day}}</span></li>
-                    <li><span>THU</span><span>{{day}}</span></li>
-                    <li><span>FRI</span><span>{{day}}</span></li>
-                    <li><span>SAT</span><span>{{day}}</span></li>
+                    <li><span>SUN</span><span>{{day[7]}}</span></li>
+                    <li><span>MON</span><span>{{day[1]}}</span></li>
+                    <li><span>TUE</span><span>{{day[2]}}</span></li>
+                    <li><span>WED</span><span>{{day[3]}}</span></li>
+                    <li><span>THU</span><span>{{day[4]}}</span></li>
+                    <li><span>FRI</span><span>{{day[5]}}</span></li>
+                    <li><span>SAT</span><span>{{day[6]}}</span></li>
                 </ul>
                 <ul class="list">
                     <li>
@@ -47,7 +47,7 @@ export default {
   data () {
     return {
       date: '', // 日期
-      day: '', // 号数
+      day: [], // 号数
       arr1: [1, 3, 5, 7, 9, 11], // 大月
       arr2: [4, 6, 8, 10, 12] // 小月
     }
@@ -61,39 +61,42 @@ export default {
     let month = date.getMonth() + 1
     let day = date.getDate()
     let week = date.getDay()
-    let str = date.getFullYear() + '-' + (month < 10 ? '0'+ month:month) + '-' + (day < 10? '0'+ day:day)
+    let str = date.getFullYear() + '-' + ( month < 10 ? '0'+ month:month) + '-' + ( day < 10? '0'+ day:day)
     let array = new Array()
     let i = week
     let j = week 
-    while(i >= 0) {
-      if(day<= 0) {
+    let day2 = day
+    while(i >0) {
+      if(day <= 0) {
         if(this.arr1.indexOf(month)) {
-            day = 30
-        } else if(this.arr2.indexOf(month)) {
-            day = 31
+          day = 30
+        } else if (this.arr2.indexOf(month)) {
+          day = 31
         }
       }
       array[i] = day
-        i--
-        day--
+      i--
+      day--
     } 
-    while(j < 7) {
-      if(day >=30) {
-        if(this.arr1.indexOf(month)) {
-            day = 30
-        } else if(this.arr2.indexOf(month)) {
-            day = 31
+    while(j <= 7) {
+      if(this.arr1.indexOf(month)) {
+        if( day2 === 31) {
+          day2 = 1
         }
+      } else {
+          if(day2 === 30) {
+              day2 =1
+          }
       }
-      array[j] = day
-        j++
-        day+=
+
+      array[j] = day2
+      j++
+      day2++
     }
     console.log(array)
     this.date = str
-    this.day = day
+    this.day = array
   }
-
 }
 </script>
 <style lang="scss" scoped>
@@ -145,7 +148,6 @@ export default {
             img{
                 @include wh(36px,36px);
                 border-radius:50%;
-
             }
             .text{
                 flex: 1;

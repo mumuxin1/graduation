@@ -29,8 +29,9 @@
             <img class="eye" v-if="!passwordSwicth" src="/static/images/login/close.png">
           </span>
         </div>
-        <button class="greenButton" style="width:100%" :class="{disabledGreenBtn:!validate.active}" :disabled="!validate.active" @click="register">立即注册</button>
+        <button class="greenButton" style="width:100%"  @click="register">立即注册</button>
       </div>
+      <!-- !validate.active :class="{disabledGreenBtn:!validate.active}" :disabled="true" -->
     </section>
 
     <!-- 手机格式错误 -->
@@ -94,11 +95,26 @@ export default {
     },
     // 注册
     register () {
+      console.log(11111)
       // if(this.validate.codeReg) {
       //   // loginRequest( this.NAVIGATOR, this.phoneLogin, this.codeLogin )
       // } else {
       //   this.ALERT_SWITCH('code')
       // }
+     let obj = {
+      phoneRegister: this.phoneRegister,
+      passwordValue: this.passwordValue
+     }
+     let xmlhttp = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP')
+     xmlhttp.open('post', 'localhost:7878/register', true)
+     xmlhttp.setRequestHeader("Content-type","*")
+     xmlhttp.send(obj)
+     xmlhttp.onreadystatechange=function(){
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        console.log(xmlhttp.responseText)
+      }
+    }
     }
   }
 }
