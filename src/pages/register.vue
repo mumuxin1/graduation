@@ -112,7 +112,11 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    background: #FFF;
+    background: url(/static/images/bg4.jpg) no-repeat;
+    background-size: 100%, 100%;
+    input{
+      background: transparent
+    }
     .register_container{
       .fs-noTop;
       overflow-y: auto;
@@ -233,6 +237,14 @@ export default {
               color: #F2FFF5;
             }
           }
+        }
+        .greenButton{
+          height: 40px;
+          line-height: 40px;
+          color: #F2FFF5;
+          margin-top: 50px;
+          border-radius: 30px;
+          opacity: 0.7;
         }
       }
     }

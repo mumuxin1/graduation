@@ -6,10 +6,10 @@ Vue.use(Vuex)
 
 // 定义变量
 const state = {
-    name: 'zll'
+  name: 'zll'
 }
 
 export default new Vuex.Store({
   state,
   mutations
-});
+})

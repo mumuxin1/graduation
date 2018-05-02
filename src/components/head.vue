@@ -2,7 +2,7 @@
 	<div id="head">
     <div class="head-left">
       <div class="back" v-if="goBack" @click="$router.go(-1)">
-        <img src="/statc/images/global/back.png">
+        <img src="/static/images/global/back.png">
       </div>
       <slot name="leftCustom"></slot>
     </div>
@@ -45,7 +45,7 @@ export default {
     position: fixed;
     top: 0;
     // z-index: 100;
-    background: white;
+    background: transparent;
     text-align: center;
     .head-left{
       .wh-l(30%, 50px);
@@ -65,8 +65,8 @@ export default {
     .head-msg{
       .wh-l(40%, 50px);
       float: left;
-      font-size: 16px;
-      color: #000;
+      font-size: 20px;
+      color: #fff;
       .text-over;
     }
     .head-right{

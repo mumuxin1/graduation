@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     goRegister () {
-      console.log(this.$store.state.name)
       this.$router.push({path: '/register'})
     }
   }
@@ -61,7 +60,7 @@ export default {
       input {
         background: transparent;
         outline: 0;
-        @include wh(80%,100%);
+        @include wh(78%,100%);
         font-size:20px;
         text-align: center;
         color: #29bd35
