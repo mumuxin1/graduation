@@ -61,14 +61,14 @@ export default {
     let month = date.getMonth() + 1
     let day = date.getDate()
     let week = date.getDay()
-    let str = date.getFullYear() + '-' + ( month < 10 ? '0'+ month:month) + '-' + ( day < 10? '0'+ day:day)
+    let str = date.getFullYear() + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day)
     let array = new Array()
     let i = week
-    let j = week 
+    let j = week
     let day2 = day
-    while(i >0) {
-      if(day <= 0) {
-        if(this.arr1.indexOf(month)) {
+    while (i > 0) {
+      if (day <= 0) {
+        if (this.arr1.indexOf(month)) {
           day = 30
         } else if (this.arr2.indexOf(month)) {
           day = 31
@@ -77,18 +77,17 @@ export default {
       array[i] = day
       i--
       day--
-    } 
-    while(j <= 7) {
-      if(this.arr1.indexOf(month)) {
-        if( day2 === 31) {
+    }
+    while (j <= 7) {
+      if (this.arr1.indexOf(month)) {
+        if (day2 === 31) {
           day2 = 1
         }
       } else {
-          if(day2 === 30) {
-              day2 =1
-          }
+        if (day2 === 30) {
+          day2 = 1
+        }
       }
-
       array[j] = day2
       j++
       day2++

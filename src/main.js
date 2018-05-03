@@ -9,10 +9,12 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import 'amfe-flexible' // 自适应布局
 import store from './store/index'
+import axios from 'axios'
+
 Vue.use(MintUI)
 Vue.use(Vuex)
 Vue.config.productionTip = false
-
+Vue.prototype.$http = axios
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

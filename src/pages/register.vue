@@ -8,7 +8,7 @@
           <div class="phone_icon">
             <img src="/static/images/login/phone.png">
           </div>
-          <input type="text" placeholder="手机号" v-model="phoneRegister">
+          <input type="text" placeholder="请输入您的手机号" v-model="phoneRegister">
         </div>
         <div class="code">
           <div class="code_icon">
@@ -22,16 +22,15 @@
           <div class="password_icon">
             <img src="/static/images/login/mima.png">
           </div>
-          <input type="text" v-if="passwordSwicth" v-model="passwordValue" placeholder="请输入您的密码">
+          <input type="text" v-if="passwordSwicth" v-model="passwordValue" placeholder="请输入您的密码" >
           <input type="password" v-if="!passwordSwicth" v-model="passwordValue" placeholder="请输入您的密码">
           <span @click="passwordSwicth=!passwordSwicth">
             <img class="eye" v-if="passwordSwicth" src="/static/images/login/open.png">
             <img class="eye" v-if="!passwordSwicth" src="/static/images/login/close.png">
           </span>
         </div>
-        <button class="greenButton" style="width:100%"  @click="register">立即注册</button>
+        <button class="greenButton" style="width:100%" :class="{disabledGreenBtn:validate.active}" :disabled="!validate.active" @click="register">立即注册</button>
       </div>
-      <!-- !validate.active :class="{disabledGreenBtn:!validate.active}" :disabled="true" -->
     </section>
 
     <!-- 手机格式错误 -->
@@ -79,9 +78,9 @@ export default {
       let vCode = /^\d{6}$/g.test(this.codeRegister)
       let vPassword = /^.{1,}$/g.test(this.passwordValue)
       return {
-        active: vPhone && vCode && vPassword,
+        active: vPhone && vPassword,
         phoneReg: vPhone,
-        codeReg: vCode,
+        //codeReg: vCode,
         passwordReg: vPassword
       }
     }
@@ -95,26 +94,17 @@ export default {
     },
     // 注册
     register () {
-      console.log(11111)
-      // if(this.validate.codeReg) {
-      //   // loginRequest( this.NAVIGATOR, this.phoneLogin, this.codeLogin )
-      // } else {
-      //   this.ALERT_SWITCH('code')
-      // }
-     let obj = {
-      phoneRegister: this.phoneRegister,
-      passwordValue: this.passwordValue
-     }
-     let xmlhttp = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP')
-     xmlhttp.open('post', 'localhost:7878/register', true)
-     xmlhttp.setRequestHeader("Content-type","*")
-     xmlhttp.send(obj)
-     xmlhttp.onreadystatechange=function(){
-      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      this.ALERT_SWITCH('code')
+      this.$http.post('http://localhost:7878/register', {
+        phoneRegister: this.phoneRegister,
+        passwordValue: this.passwordValue
+      },
       {
-        console.log(xmlhttp.responseText)
-      }
-    }
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      })
+        .then((Response) => {
+          console.log(Response)
+        })
     }
   }
 }
@@ -131,7 +121,9 @@ export default {
     background: url(/static/images/bg4.jpg) no-repeat;
     background-size: 100%, 100%;
     input{
-      background: transparent
+      background: transparent;
+      .wh(100%, 40px);
+      color: #F2FFF5;
     }
     .register_container{
       .fs-noTop;
@@ -157,13 +149,11 @@ export default {
             }
           }
           input{
-            .wh(100%, 30px);
             letter-spacing: 2px;
             padding-left: 30px;
             position: absolute;
             bottom: 0;
             right: 0;
-            border-bottom: 1px solid #ccc;
           }
         }
         .code{
@@ -182,7 +172,7 @@ export default {
             }
           }
           #code_input{
-            .wh(100%, 30px);
+            .wh(100%, 40px);
             border-bottom: 1px solid #ccc;
             margin-right: 5%;
             letter-spacing: 2px;
@@ -264,5 +254,8 @@ export default {
         }
       }
     }
+  .disabledGreenBtn{
+    background: #3FAF48
+  }
   }
 </style>
