@@ -1,0 +1,10 @@
+INSERT INTO `loregint` VALUES (13187899571, 'zzr', '123456');
+INSERT INTO `loregint` VALUES (13187799571, NULL, 'uiu5ttttttttttt');
+INSERT INTO `loregint` VALUES (13187799571, NULL, 'uiu5ttttttttttt');
+INSERT INTO `loregint` VALUES (13187799571, NULL, 'uiu5ttttttttttt');
+INSERT INTO `loregint` VALUES (13187799571, NULL, 'uiu5ttttttttttt');
+INSERT INTO `loregint` VALUES (13187799571, NULL, 'uiu5ttttttttttt');
+INSERT INTO `loregint` VALUES (13187799571, NULL, 'uiu5ttttttttttt');
+INSERT INTO `loregint` VALUES (13187899571, NULL, '123555');
+INSERT INTO `loregint` VALUES (13187899571, NULL, 'hjh');
+INSERT INTO `loregint` VALUES (13588777777, NULL, '555');
