@@ -3,13 +3,13 @@
     <form action="">
       <div class="text">
         <label for="">用户名</label>
-        <input type="text">
+        <input type="text" v-model="username">
       </div>
       <div class="text">
         <label for="">密码 </label>
-        <input type="password">
+        <input type="password" v-model="password">
       </div>
-      <button>登录</button>
+      <button @click="login">登录</button>
       <span>没有账号？
         <a @click="goRegister">去注册</a>
       </span>
@@ -30,6 +30,18 @@ export default {
   methods: {
     goRegister () {
       this.$router.push({path: '/register'})
+    },
+    login () {
+      this.$http.post('http://localhost:7878/login', {
+        phoneRegister: this.username,
+        passwordValue: this.password
+      },
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      })
+        .then((Response) => {
+          console.log(Response)
+        })
     }
   }
 }
