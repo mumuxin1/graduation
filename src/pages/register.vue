@@ -75,12 +75,12 @@ export default {
     // 验证状态
     validate () {
       let vPhone = /^1[3|4|5|7|8][0-9]{9}$/g.test(this.phoneRegister)
-      let vCode = /^\d{6}$/g.test(this.codeRegister)
+      // let vCode = /^\d{6}$/g.test(this.codeRegister)
       let vPassword = /^.{1,}$/g.test(this.passwordValue)
       return {
         active: vPhone && vPassword,
         phoneReg: vPhone,
-        //codeReg: vCode,
+        // codeReg: vCode,
         passwordReg: vPassword
       }
     }

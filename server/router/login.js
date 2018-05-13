@@ -27,13 +27,17 @@ module.exports = function (app, conn) {
     let data3 = queryString.unescape(data2) // 解码
     let data4 = JSON.parse(data3)
 
-    conn.query('SELECT pwd FROM  loregint WHERE phone = ' + data4.phoneRegister, function (err, rs) {
+    conn.query('SELECT * FROM  loregint WHERE phone = ' + data4.phoneRegister +' && pwd = ' + data4.passwordValue, function (err, rs) {
 
       if (err) {
         console.log(err.message)
       } else { 
-        console.log(rs)
-        res.send('ok')
+        if (rs[0]) {
+          res.send('1') // 成功
+        } else {
+          res.send('0')
+        }
+        
       }
     })
   })

@@ -40,7 +40,13 @@ export default {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
         .then((Response) => {
-          console.log(Response)
+          console.log(typeof Response.data)
+          if (Response.data === 1) {
+            console.log(111)
+            this.$router.push({path: '/curriculum'})
+          } else {
+            console.log(222)
+          }
         })
     }
   }
